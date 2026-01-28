@@ -55,7 +55,7 @@ void startSnake() {
     if (hitSomething()) {
       losingAnimation();
       DrawBitMap();
-      break;
+      break; //now the void loop() is waiting for you to start the next game
     }
 
     matrix.writeDisplay();

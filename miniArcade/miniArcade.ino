@@ -14,11 +14,11 @@ int gameSelection = 0;
 void setup() {
   Serial.begin(9600);
   pinMode(swPin, INPUT_PULLUP);
-  matrix.begin(0x70);   // default I2C address
+  matrix.begin(0x70);   //default I2C address
   matrix.setBrightness(2);
   matrix.setRotation(1);
 
-  digitalWrite(13, HIGH);
+  digitalWrite(13, HIGH); //power on the joystick
   DrawBitMap();
 }
 
