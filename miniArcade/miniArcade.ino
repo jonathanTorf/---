@@ -1,13 +1,13 @@
-#include <Wire.h> //hello github
+#include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_LEDBackpack.h>
 #include "snake.h"
 
 Adafruit_8x8matrix matrix = Adafruit_8x8matrix();
 
-int xPin = A0;
-int yPin = A1;
-int swPin = 2;
+const int xPin = A0;
+const int yPin = A1;
+const int swPin = 2;
 
 int gameSelection = 0;
 
