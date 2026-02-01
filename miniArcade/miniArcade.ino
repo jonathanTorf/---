@@ -43,7 +43,7 @@ void loop() {
     Serial.println("button pressed");
     if (gameSelection == 0) startSnake();
   }
-
+  
   delay(200);
 }
 
@@ -56,7 +56,7 @@ void selectScreen() {
   gameSelection = constrain(gameSelection, 0, 1);
 }
 
-const uint8_t gameOverBitmap[] PROGMEM = {
+/*const uint8_t gameOverBitmap[] PROGMEM = {
   0b00000000,
   0b00000000,
   0b00000000,
@@ -65,4 +65,4 @@ const uint8_t gameOverBitmap[] PROGMEM = {
   0b00000000,
   0b00000000,
   0b00000000
-};
+};*/
