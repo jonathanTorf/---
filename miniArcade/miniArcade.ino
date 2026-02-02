@@ -39,21 +39,21 @@ void loop() {
     gameSelection++;    //move to teh next game in the list
     selectScreen();
   }
-  if (joyStickButton == LOW) {
+  if (joyStickButton == LOW) {            //if the button was pressed
     Serial.println("button pressed");
-    if (gameSelection == 0) startSnake();
+    if (gameSelection == 0) startSnake(); //if the selected game value is 0, start a game of snake
   }
   
   delay(200);
 }
 
 void selectScreen() {
-  if (gameSelection == 0) DrawBitMap();
-  else if (gameSelection == 1) {
-    matrix.clear();
+  if (gameSelection == 0) DrawBitMap(); //if the selected game value is 0, show the icon for snake
+  else if (gameSelection == 1) {        //if the selected game value is 1
+    matrix.clear();                     //clear the screen(it would have been another games icon but thers currantly only snake
     matrix.writeDisplay();
   }
-  gameSelection = constrain(gameSelection, 0, 1);
+  gameSelection = constrain(gameSelection, 0, 1); //keep gameSelection between 0 and 1
 }
 
 /*const uint8_t gameOverBitmap[] PROGMEM = {
