@@ -23,20 +23,20 @@ void setup() {
 }
 
 void loop() {
-  int xVal = analogRead(xPin);
-  int joyStickButton = digitalRead(swPin);
+  int xVal = analogRead(xPin);             //reads the X value of the joystick 
+  int joyStickButton = digitalRead(swPin); //reads the button of the joystick
   Serial.print("xVal: ");
   Serial.println(xVal);
   Serial.print("joyStickButton: ");
   Serial.println(joyStickButton);
   Serial.println("");
 
-  if (xVal > 70) {
-    gameSelection--;
+  if (xVal > 70) {   //if the joystick was moved far enoth to the left
+    gameSelection--; //move to teh previous game in the list
     selectScreen();
   }
-  else if (xVal < 30) {
-    gameSelection++;
+  else if (xVal < 30) { //if the joystick was moved far enoth to the right
+    gameSelection++;    //move to teh next game in the list
     selectScreen();
   }
   if (joyStickButton == LOW) {
