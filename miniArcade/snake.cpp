@@ -3,6 +3,7 @@
 extern Adafruit_8x8matrix matrix;
 extern const int xPin;
 extern const int yPin;
+extern const int buzzerPin;
 
 int xDir, yDir;
 int snakeLength;
@@ -73,6 +74,12 @@ const uint8_t snakeBitmap[] PROGMEM = {
   0b00000100
 };
 
+void playSound(int hz, int delayMS) {
+  tone(buzzerPin, hz);
+  delay(delayMS);
+  noTone(buzzerPin);
+}
+
 void DrawBitMap() {
   matrix.clear();
   matrix.drawBitmap(0, 0, snakeBitmap, 8, 8, LED_ON);
@@ -93,11 +100,11 @@ void moveSnake () {
     if (snake[0].x == appleLocation.x && snake[0].y == appleLocation.y) { //if the head of the snake is at the same location as the apple
       spawnApple();
       snakeLength++; //increase the snakes length by 1
+      playSound(450, 75);
     }
 }
 
 void spawnApple() {
-  //matrix.drawPixel(appleLocation.x, appleLocation.y, LED_OFF);
   bool validSpawn = false;
 
   while (!validSpawn) {
@@ -135,12 +142,14 @@ bool hitSomething() {
 void losingAnimation() {
   matrix.drawPixel(appleLocation.x, (appleLocation.y + 7 % 8), LED_OFF); //turn off the pixel at the apples location
   matrix.writeDisplay();
-  delay(25);
+  playSound(400, 75);
   for (int i = 0; i < snakeLength; i++) {                          //run as many times as there are segmants on the snake
       matrix.drawPixel(snake[i].x, (snake[i].y + 7) % 8, LED_OFF); //turn off the pixel at the snake segmant its currantly checking
       matrix.writeDisplay();
-      delay(25);
+      playSound(400, 75);
   }
   matrix.clear(); //make sure theres nothing left on the screen
   matrix.writeDisplay();
+  delay(100);
+  playSound(150, 500);
 }
