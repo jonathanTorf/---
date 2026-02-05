@@ -89,7 +89,7 @@ void DrawBitMap() {
 void moveSnake () {
     matrix.drawPixel(snake[snakeLength-1].x, (snake[snakeLength-1].y + 7) % 8, LED_OFF); //turn off the pixel at the tail of the snake
 
-    for (int i = snakeLength - 1; i > 0; i--) snake[i] = snake[i - 1];                   //shif every snake segmant value down by 1
+    for (int i = snakeLength - 1; i > 0; i--) snake[i] = snake[i - 1]; //shift every snake segmant value down by 1
 
     snake[0].x += xDir; //move the head of the snake in the X diraction
     snake[0].y += yDir; //move the head of the snake in the Y diraction
