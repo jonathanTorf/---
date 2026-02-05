@@ -75,9 +75,9 @@ const uint8_t snakeBitmap[] PROGMEM = {
 };
 
 void playSound(int hz, int delayMS) {
-  tone(buzzerPin, hz);
+  tone(buzzerPin, hz); //start playing a sound at "hz" frequency
   delay(delayMS);
-  noTone(buzzerPin);
+  noTone(buzzerPin);   //stop the sound
 }
 
 void DrawBitMap() {
